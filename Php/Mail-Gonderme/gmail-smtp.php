@@ -25,16 +25,12 @@ $mail->Password = "Asd12345";
 $mail->setFrom("kadir.ytube@gmail.com");
 $mail->addAddress("kdrksm@gmail.com");
 
-$body = file_get_contents('./mail-template.html');
-
-$gelen = ["username","userID"];
-$giden = ["Mehmet",8];
-
-$body = str_replace($gelen,$giden,$body);
 
 $mail->isHTML(true);
-$mail->Subject = "Mail Template Ornegi";
-$mail->Body = $body;
+$mail->Subject = "Gmail SMTP Ornegi";
+$mail->Body = "<h1>Merhaba Kadir</h1><p>Bu bir denemedir.</p>";
+
+$mail->addAttachment("dosya.txt");
 
 if ($mail->send())
     echo "Mail gonderimi basarili.";
